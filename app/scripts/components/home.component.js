@@ -1,0 +1,59 @@
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var core_1 = require('@angular/core');
+var router_deprecated_1 = require('@angular/router-deprecated');
+var header_component_1 = require('./header.component');
+var footer_component_1 = require('./footer.component');
+var news_component_1 = require('./news.component');
+var about_component_1 = require('./about.component');
+var contact_component_1 = require('./contact.component');
+var rootscope_service_1 = require('../services/rootscope.service');
+var HomeComponent = (function () {
+    function HomeComponent(rootService, router) {
+        this.rootService = rootService;
+        this.router = router;
+    }
+    HomeComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.subscription = this.rootService.rootScopeItem$.subscribe(function (item) { return _this.item = item; });
+        console.log(this.router.currentInstruction.component.routeName);
+    };
+    HomeComponent.prototype.ngOnDestroy = function () {
+        this.subscription.unsubscribe();
+    };
+    HomeComponent = __decorate([
+        core_1.Component({
+            selector: 'home-component',
+            templateUrl: 'app/views/home.html',
+            directives: [router_deprecated_1.ROUTER_DIRECTIVES, header_component_1.HeaderComponent, footer_component_1.FooterComponent, news_component_1.NewsComponent]
+        }),
+        router_deprecated_1.RouteConfig([
+            {
+                path: '/',
+                name: 'News',
+                component: news_component_1.NewsComponent,
+                useAsDefault: true
+            }, {
+                path: '/about',
+                name: 'About',
+                component: about_component_1.AboutComponent
+            }, {
+                path: '/contact',
+                name: 'Contact',
+                component: contact_component_1.ContactComponent
+            }
+        ]), 
+        __metadata('design:paramtypes', [rootscope_service_1.RootScopeService, router_deprecated_1.Router])
+    ], HomeComponent);
+    return HomeComponent;
+}());
+exports.HomeComponent = HomeComponent;
+//# sourceMappingURL=home.component.js.map
