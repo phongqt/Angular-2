@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_deprecated_1 = require('@angular/router-deprecated');
+var router_1 = require('@angular/router');
 var rootscope_service_1 = require('../services/rootscope.service');
 var HeaderComponent = (function () {
     function HeaderComponent(rootService) {
@@ -23,7 +23,8 @@ var HeaderComponent = (function () {
         core_1.Component({
             selector: 'header-component',
             templateUrl: 'app/views/header.html',
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES]
+            directives: [router_1.ROUTER_DIRECTIVES],
+            providers: [rootscope_service_1.RootScopeService]
         }), 
         __metadata('design:paramtypes', [rootscope_service_1.RootScopeService])
     ], HeaderComponent);

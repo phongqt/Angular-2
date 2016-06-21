@@ -9,22 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_deprecated_1 = require('@angular/router-deprecated');
+var router_1 = require('@angular/router');
 var header_component_1 = require('./header.component');
 var footer_component_1 = require('./footer.component');
-var news_component_1 = require('./news.component');
-var about_component_1 = require('./about.component');
-var contact_component_1 = require('./contact.component');
 var rootscope_service_1 = require('../services/rootscope.service');
 var HomeComponent = (function () {
-    function HomeComponent(rootService, router) {
-        this.rootService = rootService;
+    function HomeComponent(router, rootService) {
         this.router = router;
+        this.rootService = rootService;
     }
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.subscription = this.rootService.rootScopeItem$.subscribe(function (item) { return _this.item = item; });
-        console.log(this.router.currentInstruction.component.routeName);
+        // console.log(this.router.currentInstruction.component.routeName);
     };
     HomeComponent.prototype.ngOnDestroy = function () {
         this.subscription.unsubscribe();
@@ -33,25 +30,10 @@ var HomeComponent = (function () {
         core_1.Component({
             selector: 'home-component',
             templateUrl: 'app/views/home.html',
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES, header_component_1.HeaderComponent, footer_component_1.FooterComponent, news_component_1.NewsComponent]
-        }),
-        router_deprecated_1.RouteConfig([
-            {
-                path: '/',
-                name: 'News',
-                component: news_component_1.NewsComponent,
-                useAsDefault: true
-            }, {
-                path: '/about',
-                name: 'About',
-                component: about_component_1.AboutComponent
-            }, {
-                path: '/contact',
-                name: 'Contact',
-                component: contact_component_1.ContactComponent
-            }
-        ]), 
-        __metadata('design:paramtypes', [rootscope_service_1.RootScopeService, router_deprecated_1.Router])
+            directives: [router_1.ROUTER_DIRECTIVES, header_component_1.HeaderComponent, footer_component_1.FooterComponent],
+            providers: [rootscope_service_1.RootScopeService]
+        }), 
+        __metadata('design:paramtypes', [router_1.Router, rootscope_service_1.RootScopeService])
     ], HomeComponent);
     return HomeComponent;
 }());

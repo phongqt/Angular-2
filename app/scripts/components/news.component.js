@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var article_service_1 = require('../services/article.service');
-var router_deprecated_1 = require('@angular/router-deprecated');
+var router_1 = require('@angular/router');
 var NewsComponent = (function () {
     function NewsComponent(articleService, router) {
         this.articleService = articleService;
@@ -49,10 +49,10 @@ var NewsComponent = (function () {
         core_1.Component({
             selector: 'news-component',
             templateUrl: 'app/views/article.html',
-            directives: [router_deprecated_1.ROUTER_DIRECTIVES],
+            directives: [router_1.ROUTER_DIRECTIVES],
             providers: [article_service_1.ArticleService]
         }), 
-        __metadata('design:paramtypes', [article_service_1.ArticleService, router_deprecated_1.Router])
+        __metadata('design:paramtypes', [article_service_1.ArticleService, router_1.Router])
     ], NewsComponent);
     return NewsComponent;
 }());

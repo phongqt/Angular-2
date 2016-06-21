@@ -15,13 +15,13 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li>
-              <a [routerLink] = "['Home']" (click) = "selectLink('home')">Home</a>
+              <a [routerLink] = "['/']" (click) = "selectLink('home')">Home</a>
           </li>
           <li>
-              <a [routerLink] = "['About']" (click) = "selectLink('about')">About</a>
+              <a [routerLink]="['/about']" (click) = "selectLink('about')">About</a>
           </li>
           <li>
-              <a [routerLink] = "['Contact']" (click) = "selectLink('contact')">Contact</a>
+              <a [routerLink] = "['/contact']" (click) = "selectLink('contact')">Contact</a>
           </li>
         </ul>
       </div>

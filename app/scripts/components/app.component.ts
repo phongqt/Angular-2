@@ -1,27 +1,9 @@
 import { Component } from '@angular/core';
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
-import { HomeComponent } from './home.component';
-import { AdminComponent } from './admin/admin.component';
+import { ROUTER_DIRECTIVES }  from '@angular/router';
 import { RootScopeService } from '../services/rootscope.service';
 @Component({
   selector: 'my-app',
   templateUrl: 'app/views/main.html',
-  directives: [ROUTER_DIRECTIVES, HomeComponent, AdminComponent],
-  providers: [
-    ROUTER_PROVIDERS, RootScopeService
-  ]
+  directives: [ROUTER_DIRECTIVES]
 })
-@RouteConfig([
-  {
-    path: '/...',
-    name: 'Home',
-    component: HomeComponent,
-    useAsDefault: true
-  },
-  {
-    path: '/admin/...',
-    name: 'Admin',
-    component: AdminComponent
-  }
-])
 export class AppComponent { }
