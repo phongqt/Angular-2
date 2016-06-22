@@ -1,1 +1,26 @@
-abc
+<div *ngIf="article">
+  <header class="intro-header" style="background-image: url('app/img/home-bg.jpg')">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  <div class="post-heading">
+                      <h1>{{article.title}}</h1>
+                      <span class="meta">Posted by <a href="javascript:void(0)">{{article.author}}</a> on {{article.created | date}}</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </header>
+  <!-- Post Content -->
+  <article>
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  <div [innerHTML]="article._Content"></div>
+              </div>
+          </div>
+      </div>
+  </article>
+
+  <hr>
+</div>

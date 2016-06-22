@@ -4,6 +4,7 @@ import { NewsComponent } from '../components/news.component';
 import { AboutComponent } from '../components/about.component';
 import { ContactComponent } from '../components/contact.component';
 import { ArticleDetailComponent } from '../components/article.detail.component';
+import { CanDeactivateGuard } from '../class/can.deactivate.guard';
 
 export const HomeRoutes: RouterConfig = [
   { 
@@ -24,7 +25,8 @@ export const HomeRoutes: RouterConfig = [
       },
       {
         path: 'detail/:alias',
-        component: ArticleDetailComponent
+        component: ArticleDetailComponent,
+        canDeactivate: [CanDeactivateGuard]
       },
     ]
   },

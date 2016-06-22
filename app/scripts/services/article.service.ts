@@ -13,6 +13,11 @@ export class ArticleService {
                     .map(this.extractData)
                     .catch(this.handleError);
   }
+  getArticleByAlias (alias) {
+    return this.http.get(this.url + '/GetByAlias?alias=' + alias)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
   private extractData(res: Response) {
     let body = res.json();
     return body.data || { };

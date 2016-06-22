@@ -22,6 +22,11 @@ var ArticleService = (function () {
             .map(this.extractData)
             .catch(this.handleError);
     };
+    ArticleService.prototype.getArticleByAlias = function (alias) {
+        return this.http.get(this.url + '/GetByAlias?alias=' + alias)
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
     ArticleService.prototype.extractData = function (res) {
         var body = res.json();
         return body.data || {};

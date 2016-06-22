@@ -4,6 +4,7 @@ var news_component_1 = require('../components/news.component');
 var about_component_1 = require('../components/about.component');
 var contact_component_1 = require('../components/contact.component');
 var article_detail_component_1 = require('../components/article.detail.component');
+var can_deactivate_guard_1 = require('../class/can.deactivate.guard');
 exports.HomeRoutes = [
     {
         path: '',
@@ -23,7 +24,8 @@ exports.HomeRoutes = [
             },
             {
                 path: 'detail/:alias',
-                component: article_detail_component_1.ArticleDetailComponent
+                component: article_detail_component_1.ArticleDetailComponent,
+                canDeactivate: [can_deactivate_guard_1.CanDeactivateGuard]
             },
         ]
     },
